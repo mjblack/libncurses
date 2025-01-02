@@ -1,4 +1,4 @@
-@[Link("menu")]#, ldflags: "`pkg-config menu --libs`")]
+@[Link("menu")]
 lib LibNCurses
   alias MenuOptions = Int32
   alias ItemOptions = Int32

@@ -6,12 +6,9 @@ LibNCurses.set_escdelay(0)
 def init_ncurses
   LibNCurses.initscr
   LibNCurses.start_color
-  # LibNCurses.init_pair(1, LibNCurses::Color::White, LibNCurses::Color::Blue)
-  LibNCurses.init_pair(1, LibNCurses::COLOR_WHITE, LibNCurses::COLOR_BLUE)
-  # LibNCurses.init_pair(2, LibNCurses::Color::Blue, LibNCurses::Color::White)
-  LibNCurses.init_pair(2, LibNCurses::COLOR_BLUE, LibNCurses::COLOR_WHITE)
-  # LibNCurses.init_pair(2, LibNCurses::Color::Red, LibNCurses::Color::White)
-  LibNCurses.init_pair(3, LibNCurses::COLOR_RED, LibNCurses::COLOR_WHITE)
+  LibNCurses.init_pair(1, LibNCurses::Color::White, LibNCurses::Color::Blue)
+  LibNCurses.init_pair(2, LibNCurses::Color::Blue, LibNCurses::Color::White)
+  LibNCurses.init_pair(3, LibNCurses::Color::Red, LibNCurses::Color::White)
   LibNCurses.curs_set(0)
   LibNCurses.noecho
   LibNCurses.keypad(LibNCurses.stdscr, true)

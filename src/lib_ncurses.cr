@@ -17,7 +17,7 @@ end
   end
 %}
 @[Link(ldflags: "'#{__DIR__}/lib_ncurses/wrapper.o'")]
-@[Link({{library}})]#, ldflags: "`pkg-config ncurses --libs`")]
+@[Link({{library}})]
 {% end %}
 lib LibNCurses
 
@@ -99,15 +99,6 @@ lib LibNCurses
     Cyan    = 6
     White   = 7
   end
-
-  COLOR_BLACK   = 0_i16
-  COLOR_RED     = 1_i16
-  COLOR_GREEN   = 2_i16
-  COLOR_YELLOW  = 3_i16
-  COLOR_BLUE    = 4_i16
-  COLOR_MAGENTA = 5_i16
-  COLOR_CYAN    = 6_i16
-  COLOR_WHITE   = 7_i16
 
   struct Version
     major : Int32
