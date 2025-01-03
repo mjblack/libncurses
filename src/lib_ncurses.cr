@@ -1,24 +1,10 @@
 lib LibLocale
-
   LC_CTYPE = 0
   fun setlocale(cat : Int32, locale : LibC::Char*) : LibC::Char*
 end
 
-{% begin %}
-{%
-  cflags = ""
-  library = "ncurses"
-  if flag?(:NCURSES_WIDECHAR)
-    cflags = "-DNCURSES_WIDECHAR"
-    library = "ncursesw"
-  end
-  unless file_exists?("#{__DIR__}/lib_ncurses/wrapper.o")
-    `clang #{__DIR__}/lib_ncurses/wrapper.c -c -o #{__DIR__}/lib_ncurses/wrapper.o #{cflags}`
-  end
-%}
 @[Link(ldflags: "'#{__DIR__}/lib_ncurses/wrapper.o'")]
-@[Link({{library}})]
-{% end %}
+@[Link("ncursesw")]
 lib LibNCurses
 
   VERSION = {{`shards version #{__DIR__}`.chomp.stringify}}

@@ -1,4 +1,4 @@
-@[Link("menu")]
+@[Link("menuw")]
 lib LibNCurses
   alias MenuOptions = Int32
   alias ItemOptions = Int32

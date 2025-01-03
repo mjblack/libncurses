@@ -10,3 +10,4 @@
 /shard.lock
 /c_lib
 /.vscode/
+/examples/*-c*

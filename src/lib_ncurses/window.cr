@@ -1,4 +1,4 @@
-@[Link("ncurses", ldflags: "`pkg-config ncurses --libs`")]
+@[Link("ncursesw")]
 lib LibNCurses
   @[Flags]
   enum WindowFlags
@@ -176,4 +176,3 @@ lib LibNCurses
   fun wvline_set(WINDOW, CCharT*, int) : Int32
   {% end %}
 end
-

@@ -1,5 +1,5 @@
 name: libncurses
-version: 0.9.0
+version: 1.0.0
 
 authors:
   - Matthew J. Black <mjblack@gmail.com>
@@ -7,6 +7,9 @@ authors:
 crystal: '>= 1.14.0'
 
 license: MIT
+
+scripts:
+  postintall: make
 
 libraries:
   libncurses: ">= 6"
