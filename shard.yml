@@ -9,7 +9,7 @@ crystal: '>= 1.14.0'
 license: MIT
 
 scripts:
-  postintall: make
+  postinstall: make
 
 libraries:
   libncurses: ">= 6"
