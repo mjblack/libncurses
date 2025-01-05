@@ -54,6 +54,25 @@ char *ncurses_version() {
 
 int impl_NCURSES_MOUSE_VERSION() { return NCURSES_MOUSE_VERSION; }
 
+int impl_A_NORMAL() { return A_NORMAL; }
+int impl_A_ATTRIBUTES() { return A_ATTRIBUTES; }
+int impl_A_CHARTEXT() { return A_CHARTEXT; }
+int impl_A_COLOR() { return A_COLOR; }
+int impl_A_STANDOUT() { return A_STANDOUT; }
+int impl_A_UNDERLINE() { return A_UNDERLINE; }
+int impl_A_REVERSE() { return A_REVERSE; }
+int impl_A_BLINK() { return A_BLINK; }
+int impl_A_DIM() { return A_DIM; }
+int impl_A_BOLD() { return A_BOLD; }
+int impl_A_ALTCHARSET() { return A_ALTCHARSET; }
+int impl_A_INVIS() { return A_INVIS; }
+int impl_A_PROTECT() { return A_PROTECT; }
+int impl_A_HORIZONTAL() { return A_HORIZONTAL; }
+int impl_A_LEFT() { return A_LEFT; }
+int impl_A_LOW() { return A_LOW; }
+int impl_A_RIGHT() { return A_RIGHT; }
+int impl_A_TOP() { return A_TOP; }
+int impl_A_VERTICAL() { return A_VERTICAL; }
 
 /*
  * ACS_ values aren't set until after `init_scr` 

@@ -1,2 +1,2 @@
 require "spec"
-require "../src/ncurses"
+require "../src/libncurses"

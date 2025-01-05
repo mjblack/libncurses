@@ -12,9 +12,12 @@ lib LibNCurses
   KEY_HOME      = 0o406
   KEY_BACKSPACE = 0o407
   # ncurses allocates for 64 function keys
+  {% begin %}
   {% for num in (0..64) %}
   KEY_F{{num}} = 0o410 + {{num}}
   {% end %}
+  {% end %}
+  {{debug}}
   KEY_DL        = 0o510
   KEY_IL        = 0o511
   KEY_DC        = 0o512

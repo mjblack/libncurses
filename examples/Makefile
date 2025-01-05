@@ -2,7 +2,7 @@ _CC = #clang
 # CFLAGS needs to include ncurses includes
 _CFLAGS =
 #LDFLAGS needs to include NCurses
-_LDFLAGS = -lncurses -lmenu
+_LDFLAGS =
 #Crystal flags
 _CRFLAGS = 
 #Crystal linker flags
@@ -28,7 +28,7 @@ ifneq '$(CRFLAGS)' ''
 	_CRFLAGS := $(CRFLAGS)
 endif
 
-EXAMPLES = hello_world menu1 menu2
+EXAMPLES = hello_world menu1 menu2 panel
 
 all: $(EXAMPLES)
 .PHONY: all
@@ -44,6 +44,11 @@ menu1:
 menu2:
 	$(_CC) menu2.c -o menu2-c $(_CFLAGS) $(_LDFLAGS)
 	crystal build -o menu2-cr $(_CRFLAGS) $(_CRLDFLAGS) menu2.cr
+
+panel:
+	$(_CC) panel.c -o panel-c $(_CFLAGS) $(_LDFLAGS)
+	crystal build -o panel-cr $(_CRFLAGS) $(_CRLDFLAGS) panel.cr
+
 
 clean:
 	rm *-c *-cr *.dwarf

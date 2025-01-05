@@ -52,7 +52,8 @@ lib LibNCurses
 end
 
 macro ncurses_mouse_mask(b, m)
-  ({{m.id}} << (({{b.id}} - 1) * 5)
+  {% num = flag?(:bits32) ? 5 : 6 %}
+  ({{m.id}} << (({{b.id}} - 1) * {{num.id}}))
 end
 
 macro ncurses_button_release(e, x)

@@ -11,6 +11,41 @@ lib LibNCurses
     Wrapped   = 0x40
   end
 
+  {% if flag?(:NCURSES_OPAQUE) %}
+  type WindowT = Void
+  {% else %}
+    type LDat = Void*
+    {% begin %}
+      struct WindowT
+        {% for var in %w(cury curx maxy maxx begy begx flags) %}
+        {{var.id}} : Int16
+        {% end %}
+        attrs : AttrT
+        bkgd : CHType
+        {% for var in %w(notimeout clear leaveok scroll idlok idcok immed sync use_keypad) %}
+        {{var.id}} : Bool
+        {% end %}
+        delay : Int32
+        line : LDat
+        regtop : Int16
+        regbottom : Int16
+        parx : Int32
+        pary : Int32
+        parent : WINDOW
+        pad : PDat
+        yoffset : Int16
+        bkgrnd : CCharT
+        color : Int32
+      end
+      struct PDat
+        {% for var in %w(pad_y pad_x pad_top pad_left pad_bottom pad_right) %}
+        {{var.id}} : Int16
+        {% end %}
+      end
+    {% end %}
+  {% end %}
+  alias WINDOW = WindowT*
+
   # Window functions
   fun newwin(Int32, Int32, Int32, Int32) : WINDOW
   fun delwin(WINDOW) : Int32

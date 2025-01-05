@@ -2,7 +2,7 @@
 lib LibNCurses
   alias MenuOptions = Int32
   alias ItemOptions = Int32
-  alias MenuHook = Void*
+  alias MenuHook = Proc(MENU, Void)*
 
   REQ_LEFT_ITEM     = (LibNCurses::KEY_MAX + 1)
   REQ_RIGHT_ITEM    = (LibNCurses::KEY_MAX + 2)
@@ -43,9 +43,63 @@ lib LibNCurses
     Selectable    = 0x01
   end
 
+  {% if flag?(:NCURSES_OPAQUE) %}
   type ItemT = Void
-  alias ITEM = ItemT*
   type MenuT = Void
+  {% else %}
+    struct TextT
+      str : LibC::Char*
+      length : UInt16
+    end
+
+    {% begin %}
+    struct ItemT
+      name : TextT
+      description : TextT
+      imenu : MENU
+      userptr : Void*
+      opt : ItemOptions
+      index : Int16
+      y : Int16
+      x : Int16
+      value : Bool
+      {% for var in %w(left right up down) %}
+      {{var.id}} : ITEM
+      {% end %}
+    end
+
+    struct MenuT
+      {% for var in %w(height width rows cols frows fcols arows namelen desclen marklen itemlen spc_desc spc_cols spc_rows) %}
+      {{var.id}} : Int16
+      {% end %}
+      pattern : LibC::Char*
+      pindex : Int16
+      {% for var in %w(win sub userwin usersub) %}
+      {{var.id}} : WINDOW
+      {% end %}
+      items : ITEM*
+      nitems : Int16
+      curitem : ITEM
+      toprow : Int16
+      fore : CHType
+      back : CHType
+      grey : CHType
+      pad : UInt8
+
+      {% for var in %w(menu item) %}
+      {{var.id}}init : MenuHook
+      {{var.id}}term : MenuHook
+      {% end %}
+
+      userptr : Void*
+      mark : LibC::Char*
+      opt : MenuOptions
+      status : UInt16
+    end
+    {% end %}
+  {% end %}
+
+  alias ITEM = ItemT*
   alias MENU = MenuT*
 
 

@@ -3,6 +3,12 @@ lib LibLocale
   fun setlocale(cat : Int32, locale : LibC::Char*) : LibC::Char*
 end
 
+require "./lib_ncurses/key"
+require "./lib_ncurses/panel"
+require "./lib_ncurses/window"
+require "./lib_ncurses/mouse"
+require "./lib_ncurses/menu"
+
 @[Link(ldflags: "'#{__DIR__}/lib_ncurses/wrapper.o'")]
 @[Link("ncursesw")]
 lib LibNCurses
@@ -65,9 +71,11 @@ lib LibNCurses
   CCHARW_MAX = 5
   NCURSES_EXT_COLORS = 20240427
 
+  MAX_COMMAND       = (KEY_MAX + 128)
+
   type SCREEN = Void*
-  type WindowT = Void
-  alias WINDOW = WindowT*
+  # type WindowT = Void
+  # alias WINDOW = WindowT*
   alias WIntType = UInt32
   alias MMaskT = UInt32
   alias AttrT = CHType
@@ -487,12 +495,48 @@ lib LibNCurses
 
   {% end %}
 
+  # Wrappers for
+  fun impl_A_NORMAL : Int32
+  fun impl_A_ATTRIBUTES : Int32
+  fun impl_A_CHARTEXT : Int32
+  fun impl_A_COLOR : Int32
+  fun impl_A_STANDOUT : Int32
+  fun impl_A_UNDERLINE : Int32
+  fun impl_A_REVERSE : Int32
+  fun impl_A_BLINK : Int32
+  fun impl_A_DIM : Int32
+  fun impl_A_BOLD : Int32
+  fun impl_A_ALTCHARSET : Int32
+  fun impl_A_INVIS : Int32
+  fun impl_A_PROTECT : Int32
+  fun impl_A_HORIZONTAL : Int32
+  fun impl_A_LEFT : Int32
+  fun impl_A_LOW : Int32
+  fun impl_A_RIGHT : Int32
+  fun impl_A_TOP : Int32
+  fun impl_A_VERTICAL : Int32
+
+  A_NORMAL = impl_A_NORMAL
+  A_ATTRIBUTES = impl_A_ATTRIBUTES
+  A_CHARTEXT = impl_A_CHARTEXT
+  A_COLOR = impl_A_COLOR
+  A_STANDOUT = impl_A_STANDOUT
+  A_UNDERLINE = impl_A_UNDERLINE
+  A_REVERSE = impl_A_REVERSE
+  A_BLINK = impl_A_BLINK
+  A_DIM = impl_A_DIM
+  A_BOLD = impl_A_BOLD
+  A_ALTCHARSET = impl_A_ALTCHARSET
+  A_INVIS = impl_A_INVIS
+  A_PROTECT = impl_A_PROTECT
+  A_HORIZONTAL = impl_A_HORIZONTAL
+  A_LEFT = impl_A_LEFT
+  A_LOW = impl_A_LOW
+  A_RIGHT = impl_A_RIGHT
+  A_TOP = impl_A_TOP
+  A_VERTICAL = impl_A_VERTICAL
+
   # Custom functions
   fun ncurses_version : Char*
   fun get_ncurses_version(Version*) : Void
 end
-
-require "./lib_ncurses/key"
-require "./lib_ncurses/mouse"
-require "./lib_ncurses/window"
-require "./lib_ncurses/menu"
