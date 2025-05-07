@@ -15,6 +15,9 @@ lib LibNCurses
 
   VERSION = {{`shards version #{__DIR__}`.chomp.stringify}}
 
+  $lines = LINES : Int32
+  $cols = COLS : Int32
+
   # 32 bit vs 64 bit stuff first
   {% if flag?(:bits32) %}
   alias IntPtrT = Int32
@@ -23,6 +26,8 @@ lib LibNCurses
   alias IntPtrT = Int64
   alias UIntPtrT = UInt64
   {% end %}
+
+  alias NCURSES_PAIRS_T = Int16
 
   alias WCharT = Int32
 
@@ -76,7 +81,7 @@ lib LibNCurses
   type SCREEN = Void*
   # type WindowT = Void
   # alias WINDOW = WindowT*
-  alias WIntType = UInt32
+  alias Int32ype = UInt32
   alias MMaskT = UInt32
   alias AttrT = CHType
   alias CHType = UInt32
@@ -389,9 +394,9 @@ lib LibNCurses
   {% if flag?(:NCURSES_WIDECHAR) %}
 
   # Input functions
-  fun get_wch(WIntT*) : Int32
-  fun get_wstr(WIntT*) : Int32
-  fun getn_wstr(WIntT*, Int32) : Int32
+  fun get_wch(Int32*) : Int32
+  fun get_wstr(Int32*) : Int32
+  fun getn_wstr(Int32*, Int32) : Int32
   fun getcchar(CCharT*, WCharT*, AttrT*, NCURSES_PAIRS_T*, Void*) : Int32
   fun in_wch(CCharT*) : Int32
   fun in_wchnstr(CCharT*, Int32) : Int32
@@ -401,9 +406,9 @@ lib LibNCurses
   fun ins_wch(CCharT*) : Int32
   fun ins_wstr(WCharT*) : Int32
   fun inwstr(WCharT) : Int32
-  fun mvget_wch(Int32, Int32, WIntT*) : Int32
-  fun mvget_wstr(Int32, Int32, WIntT*) : Int32
-  fun mvgetn_wstr(Int32, Int32, WIntT*, Int32) : Int32
+  fun mvget_wch(Int32, Int32, Int32*) : Int32
+  fun mvget_wstr(Int32, Int32, Int32*) : Int32
+  fun mvgetn_wstr(Int32, Int32, Int32*, Int32) : Int32
   fun mvin_wch(Int32, Int32, CCharT*) : Int32
   fun mvin_wchnstr(Int32, Int32, CCharT*, Int32) : Int32
   fun mvin_wchstr(Int32, Int32, CCharT*) : Int32
@@ -434,18 +439,18 @@ lib LibNCurses
   # Misc functions
   fun border_set(CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*) : Int32
   fun getbkgrnd(CCharT*) : Int32
-  fun hline_set(CCharT*, int) : Int32
+  fun hline_set(CCharT*, Int32) : Int32
   fun key_name(WCharT) : UInt8
   fun killwchar(WCharT) : Int32
-  fun mvhline_set(Int32, Int32, CCharT*, int) : Int32
-  fun mvvline_set(Int32, Int32, CCharT*, int) : Int32
-  fun setcchar(CCharT*, WCharT*, AttrT, NCURSES_PAIRS_T, void *) : Int32
-  fun slk_wset(Int32, WCharT*, int) : Int32
+  fun mvhline_set(Int32, Int32, CCharT*, Int32) : Int32
+  fun mvvline_set(Int32, Int32, CCharT*, Int32) : Int32
+  fun setcchar(CCharT*, WCharT*, AttrT, NCURSES_PAIRS_T, Void*) : Int32
+  fun slk_wset(Int32, WCharT*, Int32) : Int32
   fun term_attrs : AttrT
   fun unget_wch(WCharT) : Int32
-  fun vid_attr(AttrT, NCURSES_PAIRS_T, void *) : Int32
-  fun vid_puts(AttrT, NCURSES_PAIRS_T, void *, NCURSES_OUTC) : Int32
-  fun vline_set(CCharT*, int) : Int32
+  fun vid_attr(AttrT, NCURSES_PAIRS_T, Void*) : Int32
+  fun vid_puts(AttrT, NCURSES_PAIRS_T, Void*, NCURSES_OUTC) : Int32
+  fun vline_set(CCharT*, Int32) : Int32
   fun wunctrl(CCharT*) : WCharT
 
   # Wrappers for WACS_ constants

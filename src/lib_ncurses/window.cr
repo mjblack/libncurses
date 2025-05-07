@@ -168,18 +168,18 @@ lib LibNCurses
   {% if flag?(:NCURSES_WIDECHAR) %}
   fun box_set(WINDOW, CCharT*, CCharT*) : Int32
   fun mvwadd_wch(WINDOW, Int32, Int32, CCharT*) : Int32
-  fun mvwadd_wchnstr(WINDOW, Int32, Int32, CCharT*, int) : Int32
+  fun mvwadd_wchnstr(WINDOW, Int32, Int32, CCharT*, Int32) : Int32
   fun mvwadd_wchstr(WINDOW, Int32, Int32, CCharT*) : Int32
-  fun mvwaddnwstr(WINDOW, Int32, Int32, WCharT*, int) : Int32
+  fun mvwaddnwstr(WINDOW, Int32, Int32, WCharT*, Int32) : Int32
   fun mvwaddwstr(WINDOW, Int32, Int32, WCharT*) : Int32
-  fun mvwget_wch(WINDOW, Int32, Int32, WIntT*) : Int32
-  fun mvwget_wstr(WINDOW, Int32, Int32, WIntT*) : Int32
-  fun mvwgetn_wstr(WINDOW, Int32, Int32, WIntT*, int) : Int32
-  fun mvwhline_set(WINDOW, Int32, Int32, CCharT*, int) : Int32
+  fun mvwget_wch(WINDOW, Int32, Int32, Int32*) : Int32
+  fun mvwget_wstr(WINDOW, Int32, Int32, Int32*) : Int32
+  fun mvwgetn_wstr(WINDOW, Int32, Int32, Int32*, Int32) : Int32
+  fun mvwhline_set(WINDOW, Int32, Int32, CCharT*, Int32) : Int32
   fun mvwin_wch(WINDOW, Int32, Int32, CCharT*) : Int32
   fun mvwin_wchnstr(WINDOW, Int32, Int32, CCharT*, Int32) : Int32
   fun mvwin_wchstr(WINDOW, Int32, Int32, CCharT*) : Int32
-  fun mvwinnwstr(WINDOW, Int32, Int32, WCharT, int) : Int32
+  fun mvwinnwstr(WINDOW, Int32, Int32, WCharT, Int32) : Int32
   fun mvwins_nwstr(WINDOW, Int32, Int32, WCharT*, Int32) : Int32
   fun mvwins_wch(WINDOW, Int32, Int32, CCharT*) : Int32
   fun mvwins_wstr(WINDOW, Int32, Int32, WCharT*) : Int32
@@ -195,19 +195,19 @@ lib LibNCurses
   fun wbkgrndset(WINDOW, CCharT*)
   fun wborder_set(WINDOW, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*, CCharT*) : Int32
   fun wecho_wchar(WINDOW, CCharT*) : Int32
-  fun wget_wch(WINDOW, WIntT*) : Int32
-  fun wget_wstr(WINDOW, WIntT*) : Int32
+  fun wget_wch(WINDOW, Int32*) : Int32
+  fun wget_wstr(WINDOW, Int32*) : Int32
   fun wgetbkgrnd(WINDOW, CCharT*) : Int32
-  fun wgetn_wstr(WINDOW, WIntT*, int) : Int32
-  fun whline_set(WINDOW, CCharT*, int) : Int32
+  fun wgetn_wstr(WINDOW, Int32*, Int32) : Int32
+  fun whline_set(WINDOW, CCharT*, Int32) : Int32
   fun win_wch(WINDOW, CCharT*) : Int32
-  fun win_wchnstr(WINDOW, CCharT*, int) : Int32
+  fun win_wchnstr(WINDOW, CCharT*, Int32) : Int32
   fun win_wchstr(WINDOW, CCharT*) : Int32
-  fun winnwstr(WINDOW, WCharT, int) : Int32
-  fun wins_nwstr(WINDOW, WCharT*, int) : Int32
+  fun winnwstr(WINDOW, WCharT, Int32) : Int32
+  fun wins_nwstr(WINDOW, WCharT*, Int32) : Int32
   fun wins_wch(WINDOW, CCharT*) : Int32
   fun wins_wstr(WINDOW, WCharT*) : Int32
   fun winwstr(WINDOW, WCharT) : Int32
-  fun wvline_set(WINDOW, CCharT*, int) : Int32
+  fun wvline_set(WINDOW, CCharT*, Int32) : Int32
   {% end %}
 end
