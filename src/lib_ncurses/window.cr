@@ -165,7 +165,6 @@ lib LibNCurses
   fun wattroff(WINDOW, Int32) : Int32 # Legacy
   fun wattrset(WINDOW, Int32) : Int32 # Legacy
 
-  {% if flag?(:NCURSES_WIDECHAR) %}
   fun box_set(WINDOW, CCharT*, CCharT*) : Int32
   fun mvwadd_wch(WINDOW, Int32, Int32, CCharT*) : Int32
   fun mvwadd_wchnstr(WINDOW, Int32, Int32, CCharT*, Int32) : Int32
@@ -209,5 +208,4 @@ lib LibNCurses
   fun wins_wstr(WINDOW, WCharT*) : Int32
   fun winwstr(WINDOW, WCharT) : Int32
   fun wvline_set(WINDOW, CCharT*, Int32) : Int32
-  {% end %}
 end
