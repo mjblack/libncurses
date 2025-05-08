@@ -346,52 +346,51 @@ lib LibNCurses
   # Pad functions
   fun newpad(Int32, Int32) : WINDOW
 
+  fun ncurses_acs = impl_NCURSES_ACS(UInt8) : UInt32
   # Wrappers for ACS_ constants
-  fun acs_ulcorner = impl_ACS_ULCORNER : Int32
-  fun acs_llcorner = impl_ACS_LLCORNER : Int32
-  fun acs_urcorner = impl_ACS_URCORNER : Int32
-  fun acs_lrcorner = impl_ACS_LRCORNER : Int32
-  fun acs_ltee = impl_ACS_LTEE : Int32
-  fun acs_rtee = impl_ACS_RTEE : Int32
-  fun acs_btee = impl_ACS_BTEE : Int32
-  fun acs_ttee = impl_ACS_TTEE : Int32
-  fun acs_hline = impl_ACS_HLINE : Int32
-  fun acs_vline = impl_ACS_VLINE : Int32
-  fun acs_plus = impl_ACS_PLUS : Int32
-  fun acs_s1 = impl_ACS_S1 : Int32
-  fun acs_s9 = impl_ACS_S9 : Int32
-  fun acs_diamond = impl_ACS_DIAMOND : Int32
-  fun acs_ckboard = impl_ACS_CKBOARD : Int32
-  fun acs_degree = impl_ACS_DEGREE : Int32
-  fun acs_plminus = impl_ACS_PLMINUS : Int32
-  fun acs_bullet = impl_ACS_BULLET : Int32
-  fun acs_larrow = impl_ACS_LARROW : Int32
-  fun acs_rarrow = impl_ACS_RARROW : Int32
-  fun acs_darrow = impl_ACS_DARROW : Int32
-  fun acs_uarrow = impl_ACS_UARROW : Int32
-  fun acs_board = impl_ACS_BOARD : Int32
-  fun acs_lantern = impl_ACS_LANTERN : Int32
-  fun acs_block = impl_ACS_BLOCK : Int32
-  fun acs_s3 = impl_ACS_S3 : Int32
-  fun acs_s7 = impl_ACS_S7 : Int32
-  fun acs_lequal = impl_ACS_LEQUAL : Int32
-  fun acs_gequal = impl_ACS_GEQUAL : Int32
-  fun acs_pi = impl_ACS_PI : Int32
-  fun acs_nequal = impl_ACS_NEQUAL : Int32
-  fun acs_sterling = impl_ACS_STERLING : Int32
-  fun acs_bssb = impl_ACS_BSSB : Int32
-  fun acs_ssbb = impl_ACS_SSBB : Int32
-  fun acs_bbss = impl_ACS_BBSS : Int32
-  fun acs_sbbs = impl_ACS_SBBS : Int32
-  fun acs_sbss = impl_ACS_SBSS : Int32
-  fun acs_sssb = impl_ACS_SSSB : Int32
-  fun acs_ssbs = impl_ACS_SSBS : Int32
-  fun acs_bsss = impl_ACS_BSSS : Int32
-  fun acs_bsbs = impl_ACS_BSBS : Int32
-  fun acs_sbsb = impl_ACS_SBSB : Int32
-  fun acs_ssss = impl_ACS_SSSS : Int32
-
-  {% if flag?(:NCURSES_WIDECHAR) %}
+  fun acs_ulcorner = impl_ACS_ULCORNER : UInt32
+  fun acs_llcorner = impl_ACS_LLCORNER : UInt32
+  fun acs_urcorner = impl_ACS_URCORNER : UInt32
+  fun acs_lrcorner = impl_ACS_LRCORNER : UInt32
+  fun acs_ltee = impl_ACS_LTEE : UInt32
+  fun acs_rtee = impl_ACS_RTEE : UInt32
+  fun acs_btee = impl_ACS_BTEE : UInt32
+  fun acs_ttee = impl_ACS_TTEE : UInt32
+  fun acs_hline = impl_ACS_HLINE : UInt32
+  fun acs_vline = impl_ACS_VLINE : UInt32
+  fun acs_plus = impl_ACS_PLUS : UInt32
+  fun acs_s1 = impl_ACS_S1 : UInt32
+  fun acs_s9 = impl_ACS_S9 : UInt32
+  fun acs_diamond = impl_ACS_DIAMOND : UInt32
+  fun acs_ckboard = impl_ACS_CKBOARD : UInt32
+  fun acs_degree = impl_ACS_DEGREE : UInt32
+  fun acs_plminus = impl_ACS_PLMINUS : UInt32
+  fun acs_bullet = impl_ACS_BULLET : UInt32
+  fun acs_larrow = impl_ACS_LARROW : UInt32
+  fun acs_rarrow = impl_ACS_RARROW : UInt32
+  fun acs_darrow = impl_ACS_DARROW : UInt32
+  fun acs_uarrow = impl_ACS_UARROW : UInt32
+  fun acs_board = impl_ACS_BOARD : UInt32
+  fun acs_lantern = impl_ACS_LANTERN : UInt32
+  fun acs_block = impl_ACS_BLOCK : UInt32
+  fun acs_s3 = impl_ACS_S3 : UInt32
+  fun acs_s7 = impl_ACS_S7 : UInt32
+  fun acs_lequal = impl_ACS_LEQUAL : UInt32
+  fun acs_gequal = impl_ACS_GEQUAL : UInt32
+  fun acs_pi = impl_ACS_PI : UInt32
+  fun acs_nequal = impl_ACS_NEQUAL : UInt32
+  fun acs_sterling = impl_ACS_STERLING : UInt32
+  fun acs_bssb = impl_ACS_BSSB : UInt32
+  fun acs_ssbb = impl_ACS_SSBB : UInt32
+  fun acs_bbss = impl_ACS_BBSS : UInt32
+  fun acs_sbbs = impl_ACS_SBBS : UInt32
+  fun acs_sbss = impl_ACS_SBSS : UInt32
+  fun acs_sssb = impl_ACS_SSSB : UInt32
+  fun acs_ssbs = impl_ACS_SSBS : UInt32
+  fun acs_bsss = impl_ACS_BSSS : UInt32
+  fun acs_bsbs = impl_ACS_BSBS : UInt32
+  fun acs_sbsb = impl_ACS_SBSB : UInt32
+  fun acs_ssss = impl_ACS_SSSS : UInt32
 
   # Input functions
   fun get_wch(Int32*) : Int32
@@ -453,52 +452,51 @@ lib LibNCurses
   fun vline_set(CCharT*, Int32) : Int32
   fun wunctrl(CCharT*) : WCharT
 
+  fun ncurses_wacs = impl_NCURSES_WACS(UInt8) : CCharT*
   # Wrappers for WACS_ constants
-  fun wacs_ulcorner = impl_WACS_ULCORNER : Int32
-  fun wacs_llcorner = impl_WACS_LLCORNER : Int32
-  fun wacs_urcorner = impl_WACS_URCORNER : Int32
-  fun wacs_lrcorner = impl_WACS_LRCORNER : Int32
-  fun wacs_ltee = impl_WACS_LTEE : Int32
-  fun wacs_rtee = impl_WACS_RTEE : Int32
-  fun wacs_btee = impl_WACS_BTEE : Int32
-  fun wacs_ttee = impl_WACS_TTEE : Int32
-  fun wacs_hline = impl_WACS_HLINE : Int32
-  fun wacs_vline = impl_WACS_VLINE : Int32
-  fun wacs_plus = impl_WACS_PLUS : Int32
-  fun wacs_s1 = impl_WACS_S1 : Int32
-  fun wacs_s9 = impl_WACS_S9 : Int32
-  fun wacs_diamond = impl_WACS_DIAMOND : Int32
-  fun wacs_ckboard = impl_WACS_CKBOARD : Int32
-  fun wacs_degree = impl_WACS_DEGREE : Int32
-  fun wacs_plminus = impl_WACS_PLMINUS : Int32
-  fun wacs_bullet = impl_WACS_BULLET : Int32
-  fun wacs_larrow = impl_WACS_LARROW : Int32
-  fun wacs_rarrow = impl_WACS_RARROW : Int32
-  fun wacs_darrow = impl_WACS_DARROW : Int32
-  fun wacs_uarrow = impl_WACS_UARROW : Int32
-  fun wacs_board = impl_WACS_BOARD : Int32
-  fun wacs_lantern = impl_WACS_LANTERN : Int32
-  fun wacs_block = impl_WACS_BLOCK : Int32
-  fun wacs_s3 = impl_WACS_S3 : Int32
-  fun wacs_s7 = impl_WACS_S7 : Int32
-  fun wacs_lequal = impl_WACS_LEQUAL : Int32
-  fun wacs_gequal = impl_WACS_GEQUAL : Int32
-  fun wacs_pi = impl_WACS_PI : Int32
-  fun wacs_nequal = impl_WACS_NEQUAL : Int32
-  fun wacs_sterling = impl_WACS_STERLING : Int32
-  fun wacs_bssb = impl_WACS_BSSB : Int32
-  fun wacs_ssbb = impl_WACS_SSBB : Int32
-  fun wacs_bbss = impl_WACS_BBSS : Int32
-  fun wacs_sbbs = impl_WACS_SBBS : Int32
-  fun wacs_sbss = impl_WACS_SBSS : Int32
-  fun wacs_sssb = impl_WACS_SSSB : Int32
-  fun wacs_ssbs = impl_WACS_SSBS : Int32
-  fun wacs_bsss = impl_WACS_BSSS : Int32
-  fun wacs_bsbs = impl_WACS_BSBS : Int32
-  fun wacs_sbsb = impl_WACS_SBSB : Int32
-  fun wacs_ssss = impl_WACS_SSSS : Int32
-
-  {% end %}
+  fun wacs_ulcorner = impl_WACS_ULCORNER : CCharT*
+  fun wacs_llcorner = impl_WACS_LLCORNER : CCharT*
+  fun wacs_urcorner = impl_WACS_URCORNER : CCharT*
+  fun wacs_lrcorner = impl_WACS_LRCORNER : CCharT*
+  fun wacs_ltee = impl_WACS_LTEE : CCharT*
+  fun wacs_rtee = impl_WACS_RTEE : CCharT*
+  fun wacs_btee = impl_WACS_BTEE : CCharT*
+  fun wacs_ttee = impl_WACS_TTEE : CCharT*
+  fun wacs_hline = impl_WACS_HLINE : CCharT*
+  fun wacs_vline = impl_WACS_VLINE : CCharT*
+  fun wacs_plus = impl_WACS_PLUS : CCharT*
+  fun wacs_s1 = impl_WACS_S1 : CCharT*
+  fun wacs_s9 = impl_WACS_S9 : CCharT*
+  fun wacs_diamond = impl_WACS_DIAMOND : CCharT*
+  fun wacs_ckboard = impl_WACS_CKBOARD : CCharT*
+  fun wacs_degree = impl_WACS_DEGREE : CCharT*
+  fun wacs_plminus = impl_WACS_PLMINUS : CCharT*
+  fun wacs_bullet = impl_WACS_BULLET : CCharT*
+  fun wacs_larrow = impl_WACS_LARROW : CCharT*
+  fun wacs_rarrow = impl_WACS_RARROW : CCharT*
+  fun wacs_darrow = impl_WACS_DARROW : CCharT*
+  fun wacs_uarrow = impl_WACS_UARROW : CCharT*
+  fun wacs_board = impl_WACS_BOARD : CCharT*
+  fun wacs_lantern = impl_WACS_LANTERN : CCharT*
+  fun wacs_block = impl_WACS_BLOCK : CCharT*
+  fun wacs_s3 = impl_WACS_S3 : CCharT*
+  fun wacs_s7 = impl_WACS_S7 : CCharT*
+  fun wacs_lequal = impl_WACS_LEQUAL : CCharT*
+  fun wacs_gequal = impl_WACS_GEQUAL : CCharT*
+  fun wacs_pi = impl_WACS_PI : CCharT*
+  fun wacs_nequal = impl_WACS_NEQUAL : CCharT*
+  fun wacs_sterling = impl_WACS_STERLING : CCharT*
+  fun wacs_bssb = impl_WACS_BSSB : CCharT*
+  fun wacs_ssbb = impl_WACS_SSBB : CCharT*
+  fun wacs_bbss = impl_WACS_BBSS : CCharT*
+  fun wacs_sbbs = impl_WACS_SBBS : CCharT*
+  fun wacs_sbss = impl_WACS_SBSS : CCharT*
+  fun wacs_sssb = impl_WACS_SSSB : CCharT*
+  fun wacs_ssbs = impl_WACS_SSBS : CCharT*
+  fun wacs_bsss = impl_WACS_BSSS : CCharT*
+  fun wacs_bsbs = impl_WACS_BSBS : CCharT*
+  fun wacs_sbsb = impl_WACS_SBSB : CCharT*
+  fun wacs_ssss = impl_WACS_SSSS : CCharT*
 
   # Wrappers for
   fun impl_A_NORMAL : Int32
