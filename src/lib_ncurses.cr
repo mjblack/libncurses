@@ -252,6 +252,17 @@ lib LibNCurses
   fun mvvline(Int32, Int32, CHType, Int32) : Int32
   fun mvhline(Int32, Int32, CHType, Int32) : Int32
 
+  # Getter functions
+  fun getattrs(WINDOW) : Int32
+  fun getcurx(WINDOW) : Int32
+  fun getcury(WINDOW) : Int32
+  fun getbegx(WINDOW) : Int32
+  fun getbegy(WINDOW) : Int32
+  fun getmaxx(WINDOW) : Int32
+  fun getmaxy(WINDOW) : Int32
+  fun getparx(WINDOW) : Int32
+  fun getpary(WINDOW) : Int32
+
   # Screen functions
   fun refresh : Int32
   fun clear : Int32
